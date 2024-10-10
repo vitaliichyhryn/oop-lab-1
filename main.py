@@ -35,5 +35,9 @@ class App(Adw.Application):
     def on_action_2(self, *_args):
         action_2(self)
 
-app = App()
-app.run(sys.argv)
+def main():
+    app = App()
+    app.run(sys.argv)
+
+if __name__ == '__main__':
+    main()
