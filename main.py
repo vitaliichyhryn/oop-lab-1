@@ -1,12 +1,12 @@
 import sys
 import gi
-from gi.repository import Gtk, Gio, Adw
+
+gi.require_version("Adw", "1")
+
+from gi.repository import Gio, Adw
 from window import Window
 from action_1 import action_1
 from action_2 import action_2
-
-gi.require_version("Gtk", "4.0")
-gi.require_version("Adw", "1")
 
 
 class App(Adw.Application):
