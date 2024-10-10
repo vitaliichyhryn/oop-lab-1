@@ -3,7 +3,11 @@ import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 
-from gi.repository import Gtk, Gio, Adw
+from gi.repository import Gtk, Gio, Adw, Gdk
+
+css_provider = Gtk.CssProvider()
+css_provider.load_from_path('style.css')
+Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 
 class Window(Adw.ApplicationWindow):
     def __init__(self, **kwargs):
@@ -15,7 +19,7 @@ class Window(Adw.ApplicationWindow):
         header_bar = Adw.HeaderBar()
         toolbar_view.add_top_bar(header_bar)
         
-        window_title = Adw.WindowTitle(title="meow")
+        window_title = Adw.WindowTitle(title="Лабораторна робота №1")
         header_bar.set_title_widget(window_title)
 
         menu = Gio.Menu()
@@ -29,4 +33,5 @@ class Window(Adw.ApplicationWindow):
         header_bar.pack_end(menu_button)
 
         self.label = Gtk.Label(label='', use_markup=True)
+        self.label.set_css_classes(['label'])
         toolbar_view.set_content(self.label)
