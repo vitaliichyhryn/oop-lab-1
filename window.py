@@ -1,9 +1,8 @@
 import gi
+from gi.repository import Gtk, Gio, Adw, Gdk
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
-
-from gi.repository import Gtk, Gio, Adw, Gdk
 
 css_provider = Gtk.CssProvider()
 css_provider.load_from_path("style.css")
